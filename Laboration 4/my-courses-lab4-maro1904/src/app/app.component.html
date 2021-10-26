@@ -1,0 +1,25 @@
+<header>
+  <h1 class="center">{{ title }}</h1>
+    {{ description }}
+
+  <nav>
+    <a routerLink="/courses">Alla kurser</a> |
+    <a routerLink="/my-courses">Mina kurser</a> |
+    <a routerLink="/admin">Administrera</a>
+  </nav>
+</header>
+
+<main>
+
+
+
+  
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <p class="center">
+    Denna sida läser data från
+    <a href="{{ dataSourceLink }}" target="_blank">{{ dataSourceName }}</a>.
+  </p>
+</footer>

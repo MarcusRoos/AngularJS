@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <title>
+        DT162G - JavaScriptbaserad webbutveckling - Projekt
+    </title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="guild.css" type="text/css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="my-guild-controller.js"></script>
+</head>
+
+<body data-ng-app="myGuildApp" data-ng-controller="MyGuildController">
+    <header>
+        <h1 class="center" data-ng-bind="information.heading"></h1>
+
+        <p class = "guildHeader"><h1>{{ guildsInfo }}</h1></p>
+
+        <nav>
+            <a href="my-roster.html">Roster</a>
+            <br>
+            <a href="administration.html">Administration</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="filter">
+            <form>
+                <label>Filtrera på:&nbsp;<input data-ng-model="filterQuery" class="form-control pull-right"
+                        placeholder="Filter..." /></label>
+            </form>
+        </section>
+
+        <div>Current amount of people:{{ length }}</div>
+        <sektion class="guilds">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Rank</td>
+                        <td>Class</td>
+                        <td></td>
+                        <td></td>
+                        <td>Guild</td>
+                        <td>Reliable?</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="guild in guilds | filter:filterQuery | orderBy: 'name'">
+                        <td>{{ guild.name }}</td>
+                        <td>{{ guild.rank }}</td>
+                        <td>{{ guild.class }}</td>
+                        <td></td>
+                        <td class="guild-table"></td>
+                        <td>{{ guild.currentGuild }}</td>
+                        <td>{{ guild.reliable }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </sektion>
+    </main>
+
+    <footer>
+        <p class="center">
+            Denna laboration läser data från CRUD-länk get för mina kurser och subjects
+            <br>
+            <a href="api/guilds" target="_blank">Guild</a>
+            <br>
+            <a href="api/myRosters" target="_blank">Roster</a>
+        </p>
+    </footer>
+</body>
+
+</html>

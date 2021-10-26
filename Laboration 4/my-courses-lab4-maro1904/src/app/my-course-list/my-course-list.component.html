@@ -1,0 +1,8 @@
+<tr *ngFor="let obj of filterSearch | orderBy: 'courseCode': 'asc'">
+        <td class="courseCode"><a href="my-courses/{{obj.courseCode}}">{{obj.courseCode}}</a></td>
+        <td class="name">{{obj.name}}</td>
+        <td></td>
+        <td class="completed">{{obj.completed}}</td>
+        <td class="filler"></td>
+        <td></td>
+    </tr>

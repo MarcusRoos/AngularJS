@@ -1,0 +1,23 @@
+<app-my-course-add-form></app-my-course-add-form>
+<section class="courses">
+    <table>
+        <thead>
+            <tr>
+                <td>Kurskod</td>
+                <td class="course-name">Namn</td>
+                <td></td>
+                <td>Completed</td>
+            </tr>
+        </thead>
+    </table>
+</section>
+
+<tr class="course" *ngFor="let mycourse of results | orderBy: 'courseCode': 'asc'">
+    <td class="courseCode">{{mycourse.courseCode}}</td>
+    <td class="name">{{mycourse.name}}</td>
+    <td></td>
+    <td class="completed">{{mycourse.completed}}</td>
+
+    <button *ngIf="mycourse.courseCode !== undefined" (click)="delCourse(mycourse.courseCode)" class="deleteButton">Delete</button>
+    <button *ngIf="mycourse.courseCode !== undefined" (click)="updateCourse(mycourse.courseCode)" class="deleteButton">Update</button>
+</tr>

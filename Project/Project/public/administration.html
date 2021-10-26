@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="sv" ng-app="myGuildApp">
+
+<head>
+    <title>
+        DT162G - JavaScriptbaserad webbutveckling - Projekt
+    </title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="guild.css" type="text/css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="administration.controller.js"></script>
+    <script src="https://code.angularjs.org/1.2.20/angular.js"></script>
+    <script src="bower_components/dist/angular-tooltips.js"></script>
+</head>
+
+<body data-ng-app="myGuildApp" ng-controller="MyGuildController">
+    <header>
+        <h1 class="center" data-ng-bind="myCourses_Information.titel"></h1>
+        <p class = "myAdminHeader"><h1>{{ myInfo }}</h1></p>
+
+        <nav>
+            <a href="index.html">Guild</a>
+            <br>
+            <a href="my-roster.html">Roster</a>
+
+        </nav>  
+      </header>
+
+    <main>
+
+        <section class="add">
+            <form name="addForm">
+                <div class = "tooltip" data-tip="Only letters allows - Min 3 letters, max 12 letters">
+                    <label>*Name: <input type="text" pattern="[A-Za-z]{3,12}"   minlength="3" maxlength="12" required name="nameInput" ng-required ="true" data-ng-model="name"/></label>        
+                </div>  
+                <div class = "tooltip" data-tip="Only numbers between 1 and 100 allowed">
+                    <label>*Value: <input type="number" min="1" max="100" maxlength="3" required name="valueInput" ng-required ="true" data-ng-model="value" /></label> 
+                </div>  
+                    <label>*Rank: <select required name="rankInput" ng-required ="true" data-ng-model="rank" data-ng-options="option.name as option.name for option in availableRanks"></select></label>
+                    <br>
+                    <label>*Class: <select required name="classInput" ng-required ="true"  data-ng-model="class" data-ng-options="option.name as option.name for option in availableClasses"></select></label>
+                    <br>
+                    <label>*Country: <select required name="countryInput" ng-required ="true" data-ng-model="country" data-ng-options="option.code as option.name for option in availableCountries"></select></label> 
+                    <br>
+                    <label>Active?: <input type="checkbox" data-ng-model="active" /></label>
+                    <br>
+                    <label>TBC?: <input type="checkbox" data-ng-model="tbc" /></label>
+                    <br><br><br>
+                <span ng-show="addForm.nameInput.$valid && addForm.valueInput.$valid && addForm.rankInput.$valid && addForm.countryInput.$valid && addForm.classInput.$valid" class="button add" data-ng-click="addRoster()" >Add</span> 
+            </form>
+        </section>
+        <section class="filter">
+            <form>
+                <label>Filter:&nbsp;<input data-ng-model="filterQuery" class="form-control pull-right"
+                        placeholder="Filter..." /></label>
+            </form>
+        </section>
+        <div>Current amount of people:{{ length }}</div>
+        <section class="roster">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Rank</td>
+                        <td>Value</td>
+                        <td></td>
+                        <td>Active</td>
+                        <td>TBC</td>
+                        <td>Country</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr data-ng-repeat="roster in myRosters | filter: filterQuery | orderBy: 'name'">
+                        <td>{{ roster.name }}</td>
+                        <td>{{ roster.rank }}</td>
+                        <td>{{ roster.value }}</td>
+                        <td></td>
+                        <td>{{ roster.active }}</td>
+                        <td>{{ roster.TBC }}</td>
+                        <td>{{ roster.country }}</td>
+                        <td class="button delete center" data-ng-click="delRoster(roster)">Delete</td>
+                        <td class="button updateActivity center" data-ng-click="updateRoster(roster)">Update activity</td>
+                        <td class="button updateTBC center" data-ng-click="updateTBC(roster)">Update TBC</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p class="center">
+            Denna laboration läser data från CRUD-länk get för mina kurser och subjects
+            <br>
+            <a href="api/guilds" target="_blank">Guild</a>
+            <br>
+            <a href="api/myRosters" target="_blank">Roster</a>
+        </p>
+    </footer>
+</body>
+
+</html>

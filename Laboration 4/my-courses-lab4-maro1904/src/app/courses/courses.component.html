@@ -1,0 +1,17 @@
+<app-course-filter class="appMessageList" [(filterText)]="filterSearch" [(messagesToFilter)]="filteredMessageList"></app-course-filter>
+
+<section class="courses">
+    <table>
+        <thead>
+            <tr>
+                <td>Kurskod</td>
+                <td class="course-name">Namn</td>
+                <td class="course">Kursnamn</td>
+                <td></td>
+                <td>hp</td>
+                <td>Institution</td>
+            </tr>
+        </thead>
+        </table>
+    </section>
+    <app-course-list  [filterSearch]="filteredMessageList"></app-course-list> 

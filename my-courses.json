@@ -1,0 +1,50 @@
+[
+        {
+            "courseCode": "DT013G",
+            "completed": "YES"
+        },
+        {
+            "courseCode": "DT062G",
+            "completed": "NO"
+        },
+        {
+            "courseCode": "DT076G",
+            "completed": "YES"
+        },
+        {
+            "courseCode": "DT018G",
+            "completed": "YES"
+        },
+        {
+            "courseCode": "DT151G",
+            "completed": "YES"
+        },
+        {
+            "courseCode": "DT158G",
+            "completed": "YES"
+        },
+        {
+            "courseCode": "DT060G",
+            "completed": "NO"
+        },
+        {
+            "courseCode": "DT182G",
+            "completed": "NO"
+        },
+        {
+            "courseCode": "DT019G",
+            "completed": "YES"
+        },
+        {
+            "courseCode": "DT146G",
+            "completed": "YES"
+        },
+        {
+            "courseCode": "MA140G",
+            "completed": "YES"
+        },
+        {
+            "courseCode": "DT162G",
+            "completed": "NO"
+        }
+    ]

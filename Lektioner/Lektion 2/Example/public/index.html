@@ -1,0 +1,63 @@
+﻿<!-- Sektion 2, Node.js och Express - för kursen JavaScriptbaserad webbutveckling -->
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <title>
+        DT162G - JavaScriptbaserad webbutveckling - Sektion 2: Exempel - Random Users
+    </title>
+    <meta charset="utf-8" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="random-users.css" type="text/css" />
+
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="random-users.controller.js"></script>
+</head>
+
+<body data-ng-app="randomUsersApp" data-ng-controller="RandomUsersController">
+    <header>
+        <h1 class="center">Användare</h1>
+        <p>Följande användare finns:</p>
+    </header>
+
+    <main>
+        <section class="add">
+            <form>
+                <!-- Direktivet (data-)ng-disabled sätter attributet disabled på ett element
+                    (vanligtvis en formulärkontroll, t.ex. input, button, choice etc.) om uttrycket
+                    inuti utvärderas till true. Det innebär att om användaren markerar kryssrutan
+                    kommer ($scope.)random sättas till true och förnamn, efternamn och e-post inaktiveras. -->
+                <label>Förnamn: <input data-ng-disabled="random" data-ng-model="firstName" /></label> <!-- tillgänglig i $scope.firstName -->
+                <label>Efternamn: <input data-ng-disabled="random" data-ng-model="lastName" /></label> <!-- tillgänglig i $scope.lastName -->
+                <label>E-post: <input data-ng-disabled="random" data-ng-model="email" /></label> <!-- tillgänglig i $scope.email -->
+                <label>Slumpa: <input type="checkbox" data-ng-model="random" /></label><!-- tillgänglig i $scope.random -->
+                <span class="button add" data-ng-click="addUser()" >lägg till</span> <!-- anropar metoden i $scope.addUser -->
+            </form>
+        </section>
+
+        <section class="users">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Förnamn</td>
+                        <td>Efternamn</td>
+                        <td>E-post</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="user in users | orderBy:'-'"> <!-- minustecknet i orderBy listar användarna i omvändordning som de är tillagda i arrayen -->
+                        <td>{{ user.firstName }}</td>
+                        <td>{{ user.lastName }}</td>
+                        <td>{{ user.email }}</td>
+                        <td class="button delete center" data-ng-click="deleteUser(user.uuid)">radera</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+
+</html>

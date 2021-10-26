@@ -1,0 +1,34 @@
+// Get all users
+GET http://localhost:3000/api/users
+
+###
+
+// Add random user
+POST http://localhost:3000/api/users/add HTTP/1.1
+content-type: application/json
+
+{
+    "random": true
+}
+
+###
+
+// Add user with all required data
+POST http://localhost:3000/api/users/add HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Förnamn",
+    "lastName": "Efternamn",
+    "email": "förnamn.efternamn@miun.se"
+}
+
+###
+
+// Add user with some required data missing
+POST http://localhost:3000/api/users/add HTTP/1.1
+content-type: application/json
+
+{
+    "email": "förnamn.efternamn@miun.se"
+}

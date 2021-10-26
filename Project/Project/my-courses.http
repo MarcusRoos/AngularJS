@@ -1,0 +1,33 @@
+// Get all courses
+GET http://localhost:3000/api/courses
+
+###
+
+// Get all my courses
+GET http://localhost:3000/api/myCourses
+
+###
+
+GET http://localhost:3000/api/courses/courseCode
+
+
+// Add my course
+POST http://localhost:3000/api/myCourses/add HTTP/1.1
+content-type: application/json
+
+{
+    "courseCode": "DT162G",
+    "completed": false
+}
+
+PUT http://localhost:3000/api/myCourses/:courseCode HTTP/1.1
+
+###
+
+// Update my course
+PUT http://localhost:3000/api/my/courses/dt162g HTTP/1.1
+content-type: application/json
+
+{
+    "done": true
+}

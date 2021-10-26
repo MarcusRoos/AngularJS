@@ -1,0 +1,77 @@
+﻿body {
+  font-family: georgia, serif;
+  font-size: 18px;
+  line-height: 1.6em;
+  background-color: antiquewhite;
+  padding: 0px 40px;
+  min-width: 640px;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+header p {
+  display: inline;
+}
+
+main {
+  padding: 20px;
+  border-radius: 8px;
+  border: thin solid grey;
+  box-shadow: 15px 15px 50px grey, 5px 5px 5px grey;
+  background-color: #fff;
+}
+
+table {
+  table-layout: auto;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead td {
+  font-weight: bold;
+}
+
+tbody td {
+  vertical-align: top;
+}
+
+td {
+  padding: 2px 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #ccc;
+}
+
+tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.center {
+  text-align: center;
+}
+
+.button {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.button.add {
+  color: green;
+}
+.button.delete {
+  color: red;
+}
+
+/* On mouse-over */
+.button:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* On mouse-click */
+.button:active {
+  background: rgba(0, 0, 0, 0.3);
+}

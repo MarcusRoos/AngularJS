@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <title>
+        DT162G - JavaScriptbaserad webbutveckling - Projekt
+    </title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="guild.css" type="text/css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="my-roster-controller.js"></script>
+</head>
+
+<body data-ng-app="myGuildApp" data-ng-controller="MyGuildController">
+    <header>
+        <h1 class="center" data-ng-bind="myRoster_Info_Header"></h1>
+        <p class = "myRosterHeader"><h1>{{ myInfo }}</h1></p>
+
+        <nav>
+            <a href="index.html">Guild</a>
+            <br>
+            <a href="administration.html">Administration</a>
+
+        </nav> 
+    </header>
+
+    <main>
+   
+
+        <section class="filter">
+            <form>
+                <label>Filtrera på:&nbsp;<input data-ng-model="filterQuery" class="form-control pull-right"
+                        placeholder="Filter..." /></label>
+            </form>
+        </section>
+        <div>Current amount of people:{{ length }}</div>
+        <section class="courses">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Rank</td>
+                        <td>Value</td>
+                        <td></td>
+                        <td>Active</td>
+                        <td>TBC</td>
+                        <td>Country</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="roster in myRosters | filter: filterQuery | filter: {active: 'YES'} | orderBy: 'name'">
+                        <td>{{ roster.name }}</td>
+                        <td>{{ roster.rank }}</td>
+                        <td>{{ roster.value }}</td>
+                        <td></td>
+                        <td>{{ roster.active }}</td>
+                        <td>{{ roster.TBC }}</td>
+                        <td>{{ roster.country }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p class="center">
+            Denna laboration läser data från CRUD-länk get för mina kurser och subjects
+            <br>
+            <a href="api/guilds" target="_blank">Guild</a>
+            <br>
+            <a href="api/myRosters" target="_blank">Roster</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>

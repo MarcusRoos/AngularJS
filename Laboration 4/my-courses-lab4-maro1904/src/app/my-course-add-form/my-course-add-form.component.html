@@ -1,0 +1,7 @@
+<section class="add">
+    <form>
+        <td><label>CourseCode:</label></td><td><input name="courseCode" type="text" [(ngModel)]="adder.courseCode"></td>      
+        <td><label>Completed?: </label></td><td><input name="completed" type="checkbox" [(ngModel)]="adder.completed"></td>
+        <td><span class="button add" (click)="addCourse()" >lägg till</span></td> 
+    </form>
+</section>
